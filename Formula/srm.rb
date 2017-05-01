@@ -11,7 +11,9 @@ class Srm < Formula
     sha256 "86c16f244e295dd1f3b81cabb162856250ad26f00778efc4e7afbb864334337d" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  if MacOS.version < :sierra
+    keg_only :provided_by_osx
+  end
 
   def install
     system "./configure", "--disable-debug",
